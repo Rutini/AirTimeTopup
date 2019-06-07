@@ -10,8 +10,8 @@ module.exports = async (browser, numberToActivate, voucher) => {
         await EnterVoucherPage.waitFor('#topupvoucher');
         await EnterVoucherPage.type('#topupvoucher', voucher, {delay: 13});
         await EnterVoucherPage.click('#TopupVoucherFormSubmitButton');
-        await EnterVoucherPage.waitFor(() => document.querySelector('#TopupAddonDisplayContainer'));
-        await EnterVoucherPage.evaluate(()=>document.querySelector('#addon-000201-0').click());
+        await EnterVoucherPage.waitFor(() => document.querySelector('#addon-000201-0'));
+        await EnterVoucherPage.evaluate(() => document.querySelector('#addon-000201-0').click());
         await EnterVoucherPage.click('#TopupVoucherAddonFormSubmitButton');
         await EnterVoucherPage.waitFor(() => document.querySelector('.top-upHeaderConverted'));
         return {
