@@ -1,7 +1,6 @@
-module.exports = async (browser, numberToActivate, voucher, width, height) => {
+module.exports = async (browser, numberToActivate, vouchert) => {
     try {
         const EnterVoucherPage = await browser.newPage();
-        await EnterVoucherPage.setViewport({ width, height });
 
         await EnterVoucherPage.goto('https://www.three.co.uk/web_top_up', {timeout: 0});
 

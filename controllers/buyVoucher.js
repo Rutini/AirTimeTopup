@@ -8,18 +8,9 @@ module.exports = async (req, res) => {
 
         const numberToActivateLocalFormat = phone.slice(1);
 
-        const width = 1600;
-        const height = 900;
-
-        const browser = await puppeteer.launch({
-            headless: false,
-            args: [
-                `--window-size=${ width },${ height }`
-            ]
-        });
+        const browser = await puppeteer.launch({});
 
         const BuyVoucherPage = await browser.newPage();
-        await BuyVoucherPage.setViewport({ width, height });
 
         await loginCashMobile(BuyVoucherPage);
 
@@ -59,7 +50,7 @@ module.exports = async (req, res) => {
             return voucherNumber;
         });
 
-        const response = await redeemVoucher(browser, phone, voucher, width, height);
+        const response = await redeemVoucher(browser, phone, voucher);
 
         res.json(response);
     } catch (e) {
