@@ -1,4 +1,4 @@
-module.exports = async (browser, numberToActivate, vouchert) => {
+module.exports = async (browser, numberToActivate, voucher) => {
     try {
         const EnterVoucherPage = await browser.newPage();
 
